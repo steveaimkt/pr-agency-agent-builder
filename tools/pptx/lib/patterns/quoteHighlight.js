@@ -1,5 +1,5 @@
 /**
- * quoteHighlight — 인용/핵심 메시지 풀화면
+ * quoteHighlight · 인용/핵심 메시지 풀화면
  * data: { quote, author?, context?, mood: "dark"|"light" }
  */
 const { C, FONT, SIZE, LAYOUT } = require("../design-system");

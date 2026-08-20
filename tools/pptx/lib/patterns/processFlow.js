@@ -1,5 +1,5 @@
 /**
- * processFlow — 3~5단계 수평 흐름
+ * processFlow · 3~5단계 수평 흐름
  * data: { title, steps: [{num, title, desc}] }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

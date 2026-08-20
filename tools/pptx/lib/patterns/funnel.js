@@ -1,5 +1,5 @@
 /**
- * funnel — 퍼널 다이어그램
+ * funnel · 퍼널 다이어그램
  * data: { title, stages: [{label, value?, width}] }
  *   width: 0~1 비율 (1이 가장 넓음)
  */

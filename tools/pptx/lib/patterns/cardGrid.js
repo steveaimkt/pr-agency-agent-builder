@@ -1,5 +1,5 @@
 /**
- * cardGrid — 2~4열 카드 그리드
+ * cardGrid · 2~4열 카드 그리드
  * data: { title, cards: [{icon?, title, body, color?}], columns: 2|3|4 }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

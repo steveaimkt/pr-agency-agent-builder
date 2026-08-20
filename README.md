@@ -89,6 +89,25 @@ cd tools/pptx && npm install pptxgenjs
 node tools/pptx/html2pptx.js 장표.html
 ```
 
+### 장표 패턴 열 가지
+
+`tools/pptx/lib/patterns/` 에 검증된 장표 짜임새가 들어 있다. 백지에서 그리지 않는다.
+
+| 패턴 | 언제 쓰나 |
+|---|---|
+| `heroStat` | 큰 숫자 서넛을 앞세울 때 |
+| `comparison` | 지금과 바뀐 뒤를 좌우로 견줄 때 |
+| `processFlow` | 서너 단계 흐름을 가로로 놓을 때 |
+| `timeline` | 일정을 가로로 놓을 때 |
+| `cardGrid` | 항목 여럿을 두세 줄로 늘어놓을 때 |
+| `tableInsight` | 표 하나에 읽을 거리를 붙일 때 |
+| `funnel` | 단계마다 줄어드는 것을 보일 때 |
+| `pyramid` | 위가 좁고 아래가 넓은 계층 |
+| `orgChart` | 사람이나 조직 배치 |
+| `quoteHighlight` | 한 문장을 화면 가득 |
+
+제안서 트랙(01)에서 제일 많이 쓰인다.
+
 ### 공식 스킬 붙이기
 
 파워포인트·워드·엑셀은 앤트로픽이 공개한 스킬을 그대로 쓴다.
