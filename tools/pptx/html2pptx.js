@@ -230,7 +230,7 @@ for (const sl of slides) {
     s2.addText(sl.label, {
       x: inch(72) + 0.2, y: inch(64) - 0.05, w: 8, h: 0.28,
       fontSize: 11, color: meta, bold: false, charSpacing: 2, margin: 0,
-      fontFace: 'IBM Plex Sans KR',
+      fontFace: 'Pretendard',
     });
   }
 
@@ -241,13 +241,13 @@ for (const sl of slides) {
       w: 11.6, h: sl.cover ? 1.6 : 0.85,
       fontSize: sl.cover ? 34 : 24, bold: true, color: ink,
       lineSpacingMultiple: 1.25, margin: 0, valign: 'top',
-      fontFace: 'IBM Plex Sans KR',
+      fontFace: 'Pretendard',
     });
   }
   if (sl.cover && sl.sub) {
     s2.addText(sl.sub, {
       x: inch(72), y: 4.3, w: 11.6, h: 0.4,
-      fontSize: 14, color: 'AFAFAC', margin: 0, fontFace: 'IBM Plex Sans KR',
+      fontSize: 14, color: 'AFAFAC', margin: 0, fontFace: 'Pretendard',
     });
   }
 
@@ -299,7 +299,7 @@ for (const sl of slides) {
       x: inch(72), y: TOP, w,
       colW: [first, ...Array(nCol - 1).fill(rest)],
       rowH: 0.42, valign: 'middle', margin: [6, 10, 6, 10],
-      fontFace: 'IBM Plex Sans KR',
+      fontFace: 'Pretendard',
     });
   }
 
@@ -313,7 +313,7 @@ for (const sl of slides) {
     if (sl.barTitle) {
       s2.addText(sl.barTitle, {
         x: inch(72) + 0.4, y: TOP + 0.22, w: 10.8, h: 0.3,
-        fontSize: 11, bold: true, color: INK, margin: 0, fontFace: 'IBM Plex Sans KR',
+        fontSize: 11, bold: true, color: INK, margin: 0, fontFace: 'Pretendard',
       });
     }
     s2.addChart(
@@ -329,9 +329,9 @@ for (const sl of slides) {
         chartColors: sl.bars.map((b) => (b.hot ? SAND2 : SAND)),
         showLegend: false, showTitle: false,
         showValue: true, dataLabelPosition: 'outEnd',
-        dataLabelColor: INK, dataLabelFontSize: 12, dataLabelFontFace: 'IBM Plex Sans KR',
+        dataLabelColor: INK, dataLabelFontSize: 12, dataLabelFontFace: 'Pretendard',
         catAxisLabelColor: BODY, catAxisLabelFontSize: 11,
-        catAxisLabelFontFace: 'IBM Plex Sans KR',
+        catAxisLabelFontFace: 'Pretendard',
         catGridLine: { style: 'none' },
         valAxisHidden: true,
         valGridLine: { color: SOFT, size: 1 },
@@ -340,7 +340,7 @@ for (const sl of slides) {
     if (sl.goal) {
       s2.addText(sl.goal, {
         x: inch(72) + 0.4, y: TOP + H - 0.34, w: 10.8, h: 0.26,
-        fontSize: 10, color: META, margin: 0, fontFace: 'IBM Plex Sans KR',
+        fontSize: 10, color: META, margin: 0, fontFace: 'Pretendard',
       });
     }
   }
@@ -357,20 +357,20 @@ for (const sl of slides) {
       s2.addText(sl.flag, {
         x: inch(72) + 0.5, y, w: 4.6, h: 0.36,
         fontSize: 12, bold: true, color: INK, fill: { color: HL },
-        align: 'center', valign: 'middle', margin: 4, fontFace: 'IBM Plex Sans KR',
+        align: 'center', valign: 'middle', margin: 4, fontFace: 'Pretendard',
       });
       y += 0.6;
     }
     s2.addText(sl.big, {
       x: inch(72) + 0.5, y, w: 10.6, h: 0.7,
-      fontSize: 26, bold: true, color: INK, margin: 0, fontFace: 'IBM Plex Sans KR',
+      fontSize: 26, bold: true, color: INK, margin: 0, fontFace: 'Pretendard',
     });
     y += 0.85;
     if (sl.lead) {
       s2.addText(sl.lead, {
         x: inch(72) + 0.5, y, w: 10.6, h: 1.1,
         fontSize: 13, color: BODY, lineSpacingMultiple: 1.5, margin: 0,
-        fontFace: 'IBM Plex Sans KR',
+        fontFace: 'Pretendard',
       });
     }
   }
@@ -379,13 +379,13 @@ for (const sl of slides) {
   if (sl.foot.length) {
     s2.addText(sl.foot[0] || '', {
       x: inch(72), y: 6.85, w: 7.4, h: 0.28,
-      fontSize: 9, color: meta, margin: 0, fontFace: 'IBM Plex Sans KR',
+      fontSize: 9, color: meta, margin: 0, fontFace: 'Pretendard',
     });
     if (sl.foot[1]) {
       s2.addText(sl.foot[1], {
         x: inch(72) + 7.5, y: 6.85, w: 4.1, h: 0.28,
         fontSize: 9, color: meta, align: 'right', margin: 0,
-        fontFace: 'IBM Plex Sans KR',
+        fontFace: 'Pretendard',
       });
     }
   }

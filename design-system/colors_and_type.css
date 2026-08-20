@@ -1,5 +1,5 @@
 /* =====================================================================
-   WMBB Design System · Colors & Type
+   WMBB Design System — Colors & Type
    Source: Figma "브랜드 톤앤매너" (Tone & Manner) portfolio template
    claude.ai/design · WMBB Design System (019de19d)
    ===================================================================== */
@@ -10,7 +10,7 @@
    오프라인으로 써야 하면 fonts/ 에 TTF 9종을 넣는다. 아래 @font-face 가 그때 쓰인다. */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
 
-/* Pretendard · official Korean/Latin brand face for WMBB. */
+/* Pretendard — official Korean/Latin brand face for WMBB. */
 @font-face { font-family: "Pretendard"; font-weight: 100; font-style: normal; font-display: swap;
   src: url("fonts/Pretendard-Thin.ttf") format("truetype"); }
 @font-face { font-family: "Pretendard"; font-weight: 200; font-style: normal; font-display: swap;

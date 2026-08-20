@@ -1,5 +1,5 @@
 /**
- * timeline · 수평 타임라인
+ * timeline — 수평 타임라인
  * data: { title, events: [{date, title, desc?}] }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

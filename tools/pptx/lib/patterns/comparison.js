@@ -1,5 +1,5 @@
 /**
- * comparison · 좌우 2분할 (AS-IS / TO-BE)
+ * comparison — 좌우 2분할 (AS-IS / TO-BE)
  * data: { title, left: {label, items:[]}, right: {label, items:[]}, bottomMessage? }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

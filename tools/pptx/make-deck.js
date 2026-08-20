@@ -26,6 +26,9 @@ const YELLOW = 'EBFF2C';   // WMBB 형광
 const GRAY = '848383';     // WMBB 메타
 const CARD = 'FFFFFF';
 const LINE = 'EBEBEB';
+const BODY = '4C4D59';   // WMBB 본문
+const FADE = 'AFAFAC';   // WMBB 흐린 글자
+const FONT = 'Pretendard'; // 디자인 시스템 글꼴. 없으면 시스템 글꼴로 넘어간다
 
 const [, , outlinePath, draftPath, outName] = process.argv;
 
@@ -110,13 +113,14 @@ const markFact = (slide, lines, yStart) => {
     const isFact = /\[FACT-CHECK\]|\[확인 필요\]/i.test(line);
     if (isFact) factChecks += 1;
     slide.addText(line, {
+      fontFace: FONT,
       x: 0.8,
       y,
       w: 11.7,
       h: 0.62,
       fontSize: isFact ? 20 : 18,
       bold: isFact,
-      color: isFact ? INK : '333333',
+      color: isFact ? INK : BODY,
       fill: isFact ? { color: YELLOW } : undefined,
       valign: 'middle',
       margin: isFact ? 6 : 0,
@@ -129,12 +133,15 @@ const markFact = (slide, lines, yStart) => {
 const cover = pptx.addSlide();
 cover.background = { color: INK };
 cover.addText('제안 골격', {
+      fontFace: FONT,
   x: 0.8, y: 2.5, w: 11.7, h: 1.4, fontSize: 54, bold: true, color: 'FFFFFF',
 });
 cover.addText(`목차 ${items.length}항목 중 초안이 있는 ${written.length}항목`, {
-  x: 0.8, y: 4.0, w: 11.7, h: 0.7, fontSize: 22, color: 'AAAAAA',
+      fontFace: FONT,
+  x: 0.8, y: 4.0, w: 11.7, h: 0.7, fontSize: 22, color: FADE,
 });
 cover.addText('검수를 통과한 목차로 만들었습니다', {
+      fontFace: FONT,
   x: 0.8, y: 6.3, w: 11.7, h: 0.5, fontSize: 16, color: GRAY,
 });
 
@@ -147,9 +154,11 @@ written.forEach(({ title, lines }, i) => {
   slideCount += 1;
   a.background = { color: PAPER };
   a.addText(`${String(i + 1).padStart(2, '0')}`, {
+      fontFace: FONT,
     x: 0.8, y: 0.5, w: 2, h: 0.5, fontSize: 16, color: GRAY, bold: true,
   });
   a.addText(title, {
+      fontFace: FONT,
     x: 0.8, y: 1.1, w: 11.7, h: 1.1, fontSize: 36, bold: true, color: INK,
   });
   markFact(a, lines.slice(0, half), 2.6);
@@ -161,6 +170,7 @@ written.forEach(({ title, lines }, i) => {
   slideCount += 1;
   b.background = { color: PAPER };
   b.addText(`${String(i + 1).padStart(2, '0')} 이어서`, {
+      fontFace: FONT,
     x: 0.8, y: 0.5, w: 4, h: 0.5, fontSize: 16, color: GRAY, bold: true,
   });
   markFact(b, rest, 1.4);
@@ -171,6 +181,7 @@ const last = pptx.addSlide();
 slideCount += 1;
 last.background = { color: factChecks ? YELLOW : PAPER };
 last.addText(factChecks ? '확인이 필요합니다' : '확인 필요 없음', {
+      fontFace: FONT,
   x: 0.8, y: 2.6, w: 11.7, h: 1.1, fontSize: 44, bold: true, color: INK,
 });
 last.addText(

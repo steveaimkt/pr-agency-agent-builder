@@ -1,5 +1,5 @@
 /**
- * pyramid · 피라미드 계층 (상→하, 위가 좁고 아래가 넓음)
+ * pyramid — 피라미드 계층 (상→하, 위가 좁고 아래가 넓음)
  * data: { title, layers: [{label, desc?}] }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

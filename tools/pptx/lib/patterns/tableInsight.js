@@ -1,5 +1,5 @@
 /**
- * tableInsight · 데이터 테이블 + 인사이트
+ * tableInsight — 데이터 테이블 + 인사이트
  * data: { title, headers: [], rows: [[]], highlightRow?, insight? }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");

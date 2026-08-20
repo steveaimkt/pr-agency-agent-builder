@@ -1,5 +1,5 @@
 /**
- * orgChart · 조직도 (1+N 구조)
+ * orgChart — 조직도 (1+N 구조)
  * data: { title, root: {label}, children: [{label, desc?}] }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle } = require("../design-system");
