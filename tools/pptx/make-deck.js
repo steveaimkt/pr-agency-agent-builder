@@ -14,7 +14,11 @@
  *   한 항목 = 슬라이드 두 장 (뒷장은 넘칠 때만)
  *   [FACT-CHECK] 와 [확인 필요] 는 노란 배경으로 크게
  *
- * npm install 이 필요 없다. node_modules 를 동봉했다.
+ * 처음 한 번만 · cd tools/pptx && npm install
+ *
+ * 규칙 둘을 지켜야 슬라이드가 제대로 붙는다
+ *   목차와 초안의 제목은 글자 하나까지 똑같이 쓴다
+ *   한 항목에서 슬라이드로 가는 것은 제목 다음 6줄까지다
  */
 const fs = require('fs');
 const path = require('path');
@@ -65,9 +69,16 @@ function parseOutline(md) {
 /* 초안에서 그 항목에 해당하는 문단을 찾는다 */
 function bodyFor(title, md) {
   if (!md) return [];
-  const key = title.replace(/[^가-힣A-Za-z0-9]/g, '').slice(0, 8);
+  const norm = (t) => t.replace(/[^가-힣A-Za-z0-9]/g, '');
+  const key = norm(title);
   const blocks = md.split(/\n(?=#{1,4}\s)/);
-  const hit = blocks.find((b) => b.replace(/[^가-힣A-Za-z0-9]/g, '').includes(key));
+  const head = (b) => norm((b.split('\n')[0] || ''));
+  /* 1) 제목이 글자 그대로 같은 것을 먼저 찾는다. 이게 가장 정확하다 */
+  let hit = blocks.find((b) => head(b) === key);
+  /* 2) 없으면 헤딩이 그 제목으로 시작하는 것 */
+  if (!hit) hit = blocks.find((b) => head(b).startsWith(key.slice(0, 8)));
+  /* 3) 그래도 없으면 본문 어디든 앞 8글자가 들어간 것. 엉뚱한 데 걸릴 수 있다 */
+  if (!hit) hit = blocks.find((b) => norm(b).includes(key.slice(0, 8)));
   const src = hit || '';
   return src
     .split('\n')
@@ -201,5 +212,11 @@ pptx.writeFile({ fileName: file }).then((f) => {
     console.log(`  초안이 없어 뺀 항목 ${skipped}개 · 집필 담당이 더 쓰면 그만큼 늘어납니다`);
   }
   console.log(`  노란 표시 ${factChecks}개`);
-  if (factChecks) console.log('  ⚠️ 노란 게 남아 있으면 발표용이 아닙니다.');
+  if (factChecks) {
+    console.log(`  ⚠️ 노란 표시가 ${factChecks}개 남았습니다. 사람이 확인하기 전에는 발표용이 아닙니다.`);
+    if (process.argv.includes('--strict')) {
+      console.error('  --strict 라서 여기서 멈춥니다. 노란 표시를 없앤 뒤 다시 돌리십시오.');
+      process.exit(2);
+    }
+  }
 });

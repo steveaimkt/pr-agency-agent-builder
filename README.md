@@ -85,7 +85,38 @@ output/                        산출물이 쌓이는 곳
 파워포인트는 `tools/pptx/html2pptx.js` 로 뽑으면 **글자를 고칠 수 있는 파일**이 나온다. 그림이 아니다.
 
 ```
-cd tools/pptx && npm install pptxgenjs
+cd tools/pptx && npm install
+```
+
+**제안서를 파워포인트로 뽑을 때** (트랙 01 · 제일 많이 쓰는 길)
+
+목차와 챕터 초안 두 파일에서 바로 나온다. 장표를 손으로 짤 필요가 없다.
+
+```
+node tools/pptx/make-deck.js output/02-제안-목차.md output/03-챕터-초안.md output/06-제안-PPT.pptx
+```
+
+⛔ **규칙 둘을 지켜야 제대로 붙는다.**
+
+```
+1  목차와 초안의 제목을 글자 하나까지 똑같이 쓴다
+   목차 제목에 [배점 10] 같은 걸 붙이면 못 찾는다
+   앞 챕터 본문이 뒤 챕터 제목을 그대로 쓰면 엉뚱한 글이 붙는다
+
+2  한 항목에서 슬라이드로 가는 것은 제목 다음 6줄까지다
+   표를 그 6줄 안에 두면 |---|---| 가 슬라이드에 그대로 찍힌다
+   산문 여섯 줄을 먼저 쓰고 표는 그 뒤에 둔다
+```
+
+확인이 안 끝난 것이 남아 있으면 멈추게 하려면 `--strict` 를 붙인다. 노란 표시가 하나라도 있으면 파일을 만들지 않고 멈춘다.
+
+```
+node tools/pptx/make-deck.js output/02-제안-목차.md output/03-챕터-초안.md output/06-제안-PPT.pptx --strict
+```
+
+**장표를 손으로 짤 때**는 `tools/slide-design.md` 규격으로 HTML 을 만든 뒤 이걸 쓴다.
+
+```
 node tools/pptx/html2pptx.js 장표.html
 ```
 
