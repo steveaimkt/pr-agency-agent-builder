@@ -108,6 +108,12 @@ node tools/pptx/html2pptx.js 장표.html
 
 제안서 트랙(01)에서 제일 많이 쓰인다.
 
+패턴이나 색을 고쳤으면 한 번 돌려서 눈으로 본다.
+
+```
+node tools/pptx/check-patterns.js 확인.pptx
+```
+
 ### 공식 스킬 붙이기
 
 파워포인트·워드·엑셀은 앤트로픽이 공개한 스킬을 그대로 쓴다.

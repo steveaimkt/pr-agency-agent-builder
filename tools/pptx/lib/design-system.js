@@ -1,22 +1,22 @@
 /**
  * Design System for Proposal Generator (PptxGenJS)
- * 컨설팅 스타일 디자인 시스템
+ * WMBB 디자인 시스템 · 색과 글꼴은 여기서만 온다
  */
 
-// 컬러 팔레트 (컨설팅 스타일)
+// 컬러 팔레트 · WMBB 디자인 시스템 (design-system/colors_and_type.css)
 const C = {
-  primary: "1E3A5F",    // 네이비 (신뢰감)
-  secondary: "0891B2",  // 틸 (전문성)
-  accent: "F59E0B",     // 앰버 (강조)
-  dark: "0F172A",       // 차콜 (다크 배경)
-  light: "F8FAFC",      // 오프화이트 (라이트 배경)
-  text: "1E293B",       // 본문 텍스트
-  muted: "64748B",      // 보조 텍스트
-  white: "FFFFFF",
-  card: "FFFFFF",       // 카드 배경
-  border: "E2E8F0",     // 카드 테두리
-  success: "10B981",
-  danger: "EF4444",
+  primary:   "2A2A28",  // 잉크 · 브랜드 기본
+  secondary: "747264",  // 올리브 · 받쳐 주는 색
+  accent:    "EBFF2C",  // 형광 · 강조. 한 장에 한 번만
+  dark:      "2A2A28",  // 잉크 · 어두운 바탕
+  light:     "F3F3F2",  // 종이 · 밝은 바탕
+  text:      "2A2A28",  // 잉크 · 본문
+  muted:     "848383",  // 메타 · 보조 글자
+  white:     "FFFFFF",
+  card:      "FFFFFF",  // 카드 바탕
+  border:    "EBEBEB",  // 라인
+  success:   "10B981",  // 좋음 · 뜻이 있는 색이라 그대로 둔다
+  danger:    "EF4444",  // 위험 · 뜻이 있는 색이라 그대로 둔다
 };
 
 const FONT = { header: "Pretendard", body: "Pretendard" };

@@ -74,7 +74,7 @@ function tableInsight(slide, pres, data) {
         y: rowY,
         w: tableW,
         h: rowH,
-        fill: { color: "FEF3C7" }, // 앰버 라이트
+        fill: { color: "EEEDEB" }, // 앰버 라이트
       });
     } else if (isEven) {
       slide.addShape(pres.ShapeType.rect, {
@@ -124,7 +124,7 @@ function tableInsight(slide, pres, data) {
       y: insightY,
       w: tableW,
       h: insightH,
-      fill: { color: "EFF6FF" }, // 블루 라이트
+      fill: { color: "EEEDEB" }, // 블루 라이트
       line: { color: C.secondary, width: 1.5 },
       rectRadius: 0,
     });

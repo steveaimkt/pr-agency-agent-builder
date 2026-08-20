@@ -10,7 +10,7 @@ function quoteHighlight(slide, pres, data) {
   // 풀 배경
   slide.background = { fill: isDark ? C.dark : C.light };
 
-  // 장식 바 (좌측)
+  // 장식 바 (좌측) · 이 장의 형광은 여기 하나뿐이다
   slide.addShape(pres.ShapeType.rect, {
     x: LAYOUT.mx,
     y: 1.4,
@@ -27,7 +27,7 @@ function quoteHighlight(slide, pres, data) {
     h: 0.9,
     fontSize: 72,
     fontFace: FONT.header,
-    color: isDark ? "334155" : C.border,
+    color: isDark ? "4C4D59" : C.border,
     bold: true,
     margin: 0,
   });
@@ -56,7 +56,7 @@ function quoteHighlight(slide, pres, data) {
     h: 0.9,
     fontSize: 72,
     fontFace: FONT.header,
-    color: isDark ? "334155" : C.border,
+    color: isDark ? "4C4D59" : C.border,
     bold: true,
     align: "right",
     margin: 0,
@@ -69,7 +69,7 @@ function quoteHighlight(slide, pres, data) {
       y: 3.85,
       w: 1.2,
       h: 0.03,
-      fill: { color: C.accent },
+      fill: { color: C.muted },
     });
 
     slide.addText(data.author, {
@@ -79,7 +79,7 @@ function quoteHighlight(slide, pres, data) {
       h: 0.4,
       fontSize: SIZE.body,
       fontFace: FONT.header,
-      color: isDark ? C.accent : C.primary,
+      color: isDark ? C.light : C.primary,
       bold: true,
       margin: 0,
     });

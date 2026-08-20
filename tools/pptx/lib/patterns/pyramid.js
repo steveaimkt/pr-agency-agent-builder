@@ -18,7 +18,7 @@ function pyramid(slide, pres, data) {
   const minW = maxW * 0.25;
 
   // 색상: 상단이 가장 진하고, 하단으로 갈수록 밝아짐
-  const pyramidColors = [C.primary, "1A4F7A", C.secondary, "38B2CC", "7DD3E8"];
+  const pyramidColors = [C.primary, "4C4D59", C.secondary, "848383", "AFAFAC"];
 
   layers.forEach((layer, i) => {
     // 상→하: 인덱스 0이 가장 좁음 (꼭대기)

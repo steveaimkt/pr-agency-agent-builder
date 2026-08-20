@@ -18,7 +18,7 @@ function funnel(slide, pres, data) {
   const maxW = LAYOUT.cw;
 
   // 퍼널 색상 그라데이션 (primary → secondary → accent)
-  const funnelColors = [C.primary, "1A4F7A", C.secondary, "0AADCF", C.accent];
+  const funnelColors = [C.primary, "4C4D59", C.secondary, "848383", C.accent];
 
   stages.forEach((stage, i) => {
     const w = maxW * (stage.width || 1 - i * 0.15);
