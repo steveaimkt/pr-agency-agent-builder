@@ -1,5 +1,5 @@
 /**
- * heroStat — 대형 숫자 3~4개 카드
+ * heroStat · 대형 숫자 3~4개 카드
  * data: { title, subtitle?, stats: [{value, label, color?}], caption? }
  */
 const { C, FONT, SIZE, LAYOUT, makeShadow, addTitle, addCaption } = require("../design-system");
