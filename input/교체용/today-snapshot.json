@@ -1,0 +1,696 @@
+{
+ "_readme": [
+  "오늘 수집 결과 22건. 뉴스 14 + 커뮤니티 5 + SNS 3.",
+  "브랜드·인물·제품·매체·이슈는 전부 가상이며 실재하는 기업·매체·사건과 무관하다.",
+  "설계 의도 3가지.",
+  "① 부정 기사 3건(T-05, T-06, T-07)이 하나의 이슈로 묶인다. 클러스터 ISSUE-01 '에어퓨어 X3 필터 유해물질 의혹'.",
+  "   여기에 회사 공식 입장 기사(T-08, 논조 중립)가 같은 클러스터로 들어간다. 클러스터는 논조가 아니라 주제로 묶는다.",
+  "② AI 논조 오판 2건을 일부러 심었다. T-09 는 오탐(경쟁사 기사인데 부정으로 잡힘), T-10 은 미탐(반어법 제목을 긍정으로 잡음).",
+  "   두 건 모두 human_review_required = true. 사람이 교정하는 장면이 실습의 핵심이다.",
+  "③ 4축 스코어 합계 8점. 위험도 등급 2(주의)가 결정적으로 발동한다. 계산 근거는 meta.risk_assessment 에 있다."
+ ],
+ "meta": {
+  "client": "누리솔전자",
+  "client_id": "nurisol",
+  "collection_date": "2026-08-14",
+  "coverage_period": "2026-08-13 00:00 ~ 2026-08-13 23:59 KST",
+  "baseline": "yesterday-snapshot.json (2026-08-12)",
+  "sources": [
+   "news",
+   "community",
+   "sns"
+  ],
+  "item_count": 22,
+  "volume": {
+   "news_articles": 14,
+   "community_posts_total": 38,
+   "community_posts_listed": 5,
+   "sns_mentions_total": 27,
+   "sns_mentions_listed": 3
+  },
+  "topic_volume": {
+   "filter_quality": 12,
+   "rental_terms": 6,
+   "product_launch": 7,
+   "corporate_general": 6,
+   "competitor_recall": 3,
+   "industry_background": 4
+  },
+  "sentiment_summary_ai_raw": {
+   "positive": 6,
+   "neutral": 6,
+   "negative": 10
+  },
+  "sentiment_summary_after_human_review": {
+   "positive": 5,
+   "neutral": 7,
+   "negative": 10,
+   "note": "T-09 부정에서 중립으로 하향(경쟁사 기사). T-10 긍정에서 부정으로 상향(반어법 칼럼). 총 부정 건수는 같지만 구성이 바뀐다."
+  },
+  "diff_vs_yesterday": {
+   "new_items": 18,
+   "continued_items": 4,
+   "dropped_topics": [],
+   "new_topics": [
+    "filter_quality (급증)",
+    "competitor_recall"
+   ],
+   "new_risk_keywords": [
+    "유해물질",
+    "기준치 초과",
+    "검출",
+    "소비자단체",
+    "재시험",
+    "환불",
+    "단독"
+   ],
+   "topic_growth": {
+    "filter_quality": {
+     "yesterday": 2,
+     "today": 12,
+     "multiple": 6.0
+    }
+   },
+   "note": "필터 이슈는 어제 이미 있었다(Y-12, 댓글 9개). 오늘 6배가 됐다. 신규 발생이 아니라 신규 증폭이다."
+  },
+  "issue_clusters": [
+   {
+    "cluster_id": "ISSUE-01",
+    "title": "에어퓨어 X3 필터 유해물질 검출 의혹",
+    "first_seen": "2026-08-12 (Y-12, 약한 신호)",
+    "escalated": "2026-08-13",
+    "trigger": "소비자단체 자체 시험 결과 발표 → 경제지 단독 보도",
+    "items_news": [
+     "T-05",
+     "T-06",
+     "T-07",
+     "T-08"
+    ],
+    "items_news_negative": [
+     "T-05",
+     "T-06",
+     "T-07"
+    ],
+    "items_community": [
+     "T-15",
+     "T-16",
+     "T-17",
+     "T-18"
+    ],
+    "items_sns": [
+     "T-20",
+     "T-22"
+    ],
+    "excluded_by_human": [
+     "T-09"
+    ],
+    "pending_human_decision": [
+     "T-10"
+    ],
+    "highest_tier": "T2",
+    "regulator_involved": false,
+    "actual_harm_reported": false,
+    "company_statement_issued": true
+   }
+  ],
+  "risk_assessment": {
+   "_method": "response-protocol.md 의 4축 스코어. 각 축 0~3점, 합계 0~12점.",
+   "axis1_negative_volume": {
+    "score": 2,
+    "reason": "동일 이슈 클러스터에 부정 뉴스 3건 (전일 클러스터 0건). 3~4건 구간."
+   },
+   "axis2_outlet_tier": {
+    "score": 2,
+    "reason": "클러스터 내 부정 보도 최고 매체 등급 T2 (머니라인 단독, 데일리픽). T1 진입 없음."
+   },
+   "axis3_diffusion": {
+    "score": 2,
+    "reason": "커뮤니티 필터 언급 2건 → 12건 (6배). 최대 반응 게시물 댓글 187. 3점 조건(5배 이상 AND 단일 게시물 반응 500+)은 미충족."
+   },
+   "axis4_issue_nature": {
+    "score": 2,
+    "reason": "안전·품질 의혹 제기. 실제 피해 사례 미확인, 규제기관 조사 착수 없음. 3점 조건 미충족."
+   },
+   "total_score": 8,
+   "escalation_triggers_checked": {
+    "T1_negative_coverage": false,
+    "regulator_investigation": false,
+    "actual_harm_or_casualty": false,
+    "owner_risk": false,
+    "result": "즉시 승급 사유 없음"
+   },
+   "level": 2,
+   "level_name": "주의",
+   "band": "5~8점 = 등급 2 (주의)",
+   "required_actions": [
+    "팀장 보고 30분 내",
+    "클라이언트 품질팀에 팩트 확인 요청",
+    "홀딩 스테이트먼트 초안 작성 (배포하지 않음)",
+    "예상 질문 Q&A 초안 작성",
+    "2시간 간격 재모니터링",
+    "커뮤니티 확산 지수 추적"
+   ],
+   "prohibited_actions": [
+    "AI가 생성한 문안의 외부 발송",
+    "사실관계 확정 전 '문제없다' 형태의 반박 배포",
+    "기자 문의에 대한 담당 AE 단독 응답"
+   ],
+   "next_level_condition": "다음 중 하나라도 발생하면 등급 3(대응)으로 승급. ① T1 매체(통신사·지상파·전국일간) 부정 보도 ② 소비자원 등 규제기관 조사·검토 착수 보도 ③ 단일 게시물 반응 500+ 또는 커뮤니티 언급 20건+ ④ 실제 피해 사례 보도"
+  }
+ },
+ "outlet_tiers": {
+  "T1": "통신사·지상파·전국종합일간지",
+  "T2": "주요 경제지·주요 온라인 매체",
+  "T3": "산업 전문지·소비자 전문매체·지역지",
+  "T4": "커뮤니티·블로그·SNS·개인 채널"
+ },
+ "items": [
+  {
+   "id": "T-01",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "테크리포트",
+   "tier": "T3",
+   "title": "누리솔 '워터핏 미니' 9월 3일 출시 확정",
+   "url": "https://example.invalid/techreport/2026/08/13/waterfit-launch-date",
+   "snippet": "출시일과 가격이 확정됐다. 월 렌탈료 2만원대 초반으로 책정됐다.",
+   "keyword_hit": [
+    "누리솔",
+    "워터핏"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.9,
+   "sentiment_flag": null,
+   "human_review_required": false,
+   "issue_tag": "product_launch",
+   "diff_status": "continued",
+   "reach_estimate": 12500,
+   "engagement": null
+  },
+  {
+   "id": "T-02",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "머니라인",
+   "tier": "T2",
+   "title": "누리솔전자, 하반기 마진 압박 우려에도 렌탈 순증 지속",
+   "url": "https://example.invalid/moneyline/2026/08/13/nurisol-outlook",
+   "snippet": "증권가는 목표주가를 유지했다. 원자재 부담은 있으나 계정 순증이 이를 상쇄한다는 분석이다.",
+   "keyword_hit": [
+    "누리솔전자",
+    "누리솔 렌탈"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.85,
+   "sentiment_flag": null,
+   "human_review_required": false,
+   "issue_tag": "corporate_general",
+   "diff_status": "continued",
+   "reach_estimate": 81000,
+   "engagement": null
+  },
+  {
+   "id": "T-03",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "한빛경제",
+   "tier": "T2",
+   "title": "8월 가전 성수기, 공기청정기 판매 34% 증가",
+   "url": "https://example.invalid/hanbit/2026/08/13/appliance-sales",
+   "snippet": "유통업계 집계 결과다. 브랜드별로는 상위 3사가 고르게 성장했다.",
+   "keyword_hit": [
+    "공기청정기"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.82,
+   "sentiment_flag": null,
+   "human_review_required": false,
+   "issue_tag": "industry_background",
+   "diff_status": "continued",
+   "reach_estimate": 48000,
+   "engagement": null
+  },
+  {
+   "id": "T-04",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "데일리픽",
+   "tier": "T2",
+   "title": "정한섭 누리솔 대표 \"고객 신뢰가 렌탈 사업의 자산\"",
+   "url": "https://example.invalid/dailypick/2026/08/13/ceo-trust",
+   "snippet": "창립 기념 인터뷰. 품질 관리 체계를 강화하겠다고 밝혔다.",
+   "keyword_hit": [
+    "정한섭",
+    "누리솔"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.92,
+   "sentiment_flag": "이슈 발생 당일 게재. 사후에 '신뢰' 발언이 역풍 소재로 재인용될 수 있음. 아카이브 필수",
+   "human_review_required": false,
+   "issue_tag": "corporate_general",
+   "diff_status": "new",
+   "reach_estimate": 58000,
+   "engagement": null
+  },
+  {
+   "id": "T-05",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "머니라인",
+   "tier": "T2",
+   "title": "[단독] 누리솔 에어퓨어 X3 필터에서 기준치 초과 물질 검출",
+   "url": "https://example.invalid/moneyline/2026/08/13/exclusive-filter",
+   "snippet": "소비자안전연대가 시중 공기청정기 7종을 시험한 결과, 누리솔 에어퓨어 X3 필터에서 항균처리제 성분이 기준치의 1.8배 검출됐다고 밝혔다. 누리솔전자는 \"자체 시험에서는 이상이 없었다\"는 입장이다.",
+   "keyword_hit": [
+    "누리솔",
+    "에어퓨어 X3",
+    "공기청정기 필터",
+    "유해물질",
+    "기준치 초과",
+    "검출",
+    "단독"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.96,
+   "sentiment_flag": "위험 신호어 4개 동시 히트. 단독 보도. 클러스터 코어",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 132000,
+   "engagement": null
+  },
+  {
+   "id": "T-06",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "소비자권익뉴스",
+   "tier": "T3",
+   "title": "소비자단체 \"누리솔 재시험하라\"… 누리솔 \"문제없다\"",
+   "url": "https://example.invalid/consumerrights/2026/08/13/retest-demand",
+   "snippet": "소비자안전연대는 공인시험기관 재시험을 요구했다. 누리솔전자는 자사 품질 기준을 충족했다고 반박했다. 양측 주장이 엇갈린다.",
+   "keyword_hit": [
+    "누리솔",
+    "소비자단체",
+    "재시험",
+    "유해물질"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.89,
+   "sentiment_flag": "본문에 회사 측 인용문('문제없다')이 있으나 전체 프레임은 부정. 인용 논조와 기사 논조를 구분할 것",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 9800,
+   "engagement": null
+  },
+  {
+   "id": "T-07",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "데일리픽",
+   "tier": "T2",
+   "title": "'필터 논란' 누리솔, 맘카페·커뮤니티 술렁",
+   "url": "https://example.invalid/dailypick/2026/08/13/community-buzz",
+   "snippet": "온라인에서는 환불과 교체를 요구하는 글이 잇따르고 있다. 한 맘카페 게시물에는 하루 만에 댓글 180여 개가 달렸다.",
+   "keyword_hit": [
+    "누리솔",
+    "논란",
+    "맘카페",
+    "커뮤니티 확산",
+    "환불"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.93,
+   "sentiment_flag": "확산 자체를 소재로 하는 기사. 이 유형이 나오면 확산 축(axis3) 점수를 재계산할 것",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 64000,
+   "engagement": null
+  },
+  {
+   "id": "T-08",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "테크리포트",
+   "tier": "T3",
+   "title": "누리솔전자 \"자체 시험서 이상 없어\"… 공식 입장 발표",
+   "url": "https://example.invalid/techreport/2026/08/13/official-statement",
+   "snippet": "누리솔전자는 공식 입장을 내고 전 제품이 국내 안전기준을 충족한다고 밝혔다. 외부 공인기관 재시험도 검토 중이라고 덧붙였다.",
+   "keyword_hit": [
+    "누리솔전자",
+    "공식 입장",
+    "해명"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.8,
+   "sentiment_flag": "논조는 중립이나 이슈 클러스터 ISSUE-01 에 포함된다. 클러스터는 논조가 아니라 주제로 묶는다",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 13000,
+   "engagement": null
+  },
+  {
+   "id": "T-09",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "리빙앤홈",
+   "tier": "T3",
+   "title": "공기청정기 필터 안전성 도마에… B사는 전량 리콜, 전수 교체 나서",
+   "url": "https://example.invalid/livingnhome/2026/08/13/competitor-recall",
+   "snippet": "경쟁사 B사가 자사 필터 30만 개를 자발적으로 리콜한다고 밝혔다. 업계에서는 선제 대응이라는 평가가 나온다. 누리솔전자 등 다른 브랜드도 시험 대상에 포함된 것으로 알려졌다.",
+   "keyword_hit": [
+    "공기청정기 필터",
+    "리콜",
+    "전수조사",
+    "도마",
+    "누리솔전자"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.87,
+   "sentiment_flag": "오탐 후보. 위험 신호어(리콜·전수조사·도마)가 다수 걸렸으나 대상은 경쟁사다. 우리 브랜드는 배경 언급 1회",
+   "human_review_required": true,
+   "human_review_reason": "비교 기사 오판. 기계는 위험 신호어 밀도로 부정을 매겼지만, 실제 부정 대상은 경쟁사 B사다. 사람 교정 결과 논조 '중립', issue_tag 'competitor_recall' 로 확정하고 ISSUE-01 클러스터에서 제외한다. 이것을 클러스터에 넣으면 부정 건수가 4건으로 부풀어 등급이 과대평가된다",
+   "issue_tag": "competitor_recall",
+   "diff_status": "new",
+   "reach_estimate": 8700,
+   "engagement": null
+  },
+  {
+   "id": "T-10",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "한빛경제",
+   "tier": "T2",
+   "title": "[칼럼] 누리솔의 '혁신 필터', 소비자는 웃지 못했다",
+   "url": "https://example.invalid/hanbit/2026/08/13/column-innovation",
+   "snippet": "누리솔은 에어퓨어 X3를 출시하며 혁신을 말했다. 최고의 기술, 최고의 안전이라고 했다. 그 약속은 지금 어디에 있는가.",
+   "keyword_hit": [
+    "누리솔",
+    "에어퓨어 X3",
+    "혁신"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.61,
+   "sentiment_flag": "미탐 후보. 긍정 어휘(혁신·최고·안전)의 밀도가 높아 기계가 긍정으로 판정. 신뢰도 0.61 로 낮음",
+   "human_review_required": true,
+   "human_review_reason": "반어법 칼럼. 실제 논조는 강한 부정이다. 사람 교정 결과 '부정'으로 상향. ISSUE-01 클러스터 편입 여부는 사람이 결정한다(칼럼을 보도 건수에 포함할지는 팀 기준에 따름). 편입해도 부정 4건으로 axis1 은 2점 그대로이므로 등급은 2(주의)로 동일하다. 다만 매체가 T1 이었다면 axis2 가 3점이 되어 등급 3(대응)으로 올라갔을 것이다",
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 44000,
+   "engagement": null
+  },
+  {
+   "id": "T-11",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "뉴스라인통신",
+   "tier": "T1",
+   "title": "정부, 생활가전 안전기준 개정 추진",
+   "url": "https://example.invalid/newsline/2026/08/13/safety-standard",
+   "snippet": "공기청정기 필터 항균처리제 기준을 포함한 개정안이 연내 입법예고될 전망이다. 업계는 대응 준비에 나섰다.",
+   "keyword_hit": [
+    "가전 안전기준",
+    "공기청정기 필터",
+    "KC 인증"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.88,
+   "sentiment_flag": "지금은 업계 배경이다. 그러나 ISSUE-01 과 결합해 '규제 강화의 계기가 된 사건'으로 재프레이밍되면 T1 매체 부정 보도가 된다. 감시 대상",
+   "human_review_required": false,
+   "issue_tag": "industry_background",
+   "diff_status": "new",
+   "reach_estimate": 240000,
+   "engagement": null
+  },
+  {
+   "id": "T-12",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "인천매일",
+   "tier": "T3",
+   "title": "누리솔전자, 인천 취약계층에 공기청정기 200대 기부",
+   "url": "https://example.invalid/incheonmaeil/2026/08/13/donation",
+   "snippet": "누리솔전자가 지역 취약계층 200가구에 공기청정기를 기부했다.",
+   "keyword_hit": [
+    "누리솔전자"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.91,
+   "sentiment_flag": "이슈 당일 기부 보도. 타이밍이 나쁘다. 물타기로 읽힐 수 있으므로 확산 여부를 관찰",
+   "human_review_required": false,
+   "issue_tag": "corporate_general",
+   "diff_status": "new",
+   "reach_estimate": 4200,
+   "engagement": null
+  },
+  {
+   "id": "T-13",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "소비자권익뉴스",
+   "tier": "T3",
+   "title": "렌탈 위약금 표준약관 논의 본격화",
+   "url": "https://example.invalid/consumerrights/2026/08/13/standard-terms",
+   "snippet": "소비자단체와 업계가 표준약관 마련을 위한 협의체를 구성한다.",
+   "keyword_hit": [
+    "렌탈 위약금",
+    "렌탈 해지"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.74,
+   "sentiment_flag": "브랜드 직접 언급 없음. 업계 배경. ISSUE-01 과 무관한 별도 부정",
+   "human_review_required": false,
+   "issue_tag": "rental_terms",
+   "diff_status": "continued",
+   "reach_estimate": 6900,
+   "engagement": null
+  },
+  {
+   "id": "T-14",
+   "date": "2026-08-13",
+   "type": "news",
+   "outlet": "리빙앤홈",
+   "tier": "T3",
+   "title": "[체험] 워터핏 미니 한 달 사용기",
+   "url": "https://example.invalid/livingnhome/2026/08/13/waterfit-review",
+   "snippet": "설치가 간편하고 관리 알림이 유용했다. (본 기사는 브랜드 협찬으로 제작됐습니다)",
+   "keyword_hit": [
+    "워터핏"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.94,
+   "sentiment_flag": "협찬 기사. 자발적 논조가 아니므로 논조 집계 가중치 0.3",
+   "human_review_required": false,
+   "issue_tag": "product_launch",
+   "diff_status": "new",
+   "reach_estimate": 7100,
+   "engagement": null
+  },
+  {
+   "id": "T-15",
+   "date": "2026-08-13",
+   "type": "community",
+   "outlet": "지역 맘카페",
+   "tier": "T4",
+   "title": "에어퓨어 필터에서 유해물질 나왔대요 (기사 링크)",
+   "url": "https://example.invalid/momcafe/post/554902",
+   "snippet": "어제 냄새난다고 글 올렸었는데 이거였나 봐요. 아기 방에 틀어놨는데 어떡하죠.",
+   "keyword_hit": [
+    "에어퓨어",
+    "유해물질",
+    "공기청정기 필터"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.95,
+   "sentiment_flag": "확산 코어 게시물. 어제 Y-12 작성자와 동일인. 약한 신호가 강한 신호로 전환된 지점",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 18000,
+   "engagement": {
+    "comments": 187,
+    "views": 17900
+   }
+  },
+  {
+   "id": "T-16",
+   "date": "2026-08-13",
+   "type": "community",
+   "outlet": "생활정보 커뮤니티",
+   "tier": "T4",
+   "title": "누리솔 공기청정기 환불 되나요? 산 지 4개월인데",
+   "url": "https://example.invalid/community-a/post/883444",
+   "snippet": "고객센터 전화하니 대기만 40분. 이런 경우 전액 환불 받은 분 계신가요.",
+   "keyword_hit": [
+    "누리솔",
+    "환불",
+    "공기청정기"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.9,
+   "sentiment_flag": "환불·교체 요구 유형. 이 유형이 늘면 실제 손실로 이어진다",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 9400,
+   "engagement": {
+    "comments": 94,
+    "views": 9350
+   }
+  },
+  {
+   "id": "T-17",
+   "date": "2026-08-13",
+   "type": "community",
+   "outlet": "가전 커뮤니티",
+   "tier": "T4",
+   "title": "우리집 에어퓨어도 필터 냄새 났는데 이거였네",
+   "url": "https://example.invalid/community-b/post/44890",
+   "snippet": "작년부터 그랬음. 그때 고객센터 문의했더니 정상이라고 함.",
+   "keyword_hit": [
+    "에어퓨어",
+    "공기청정기 필터"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.88,
+   "sentiment_flag": "'과거에도 문의했으나 정상이라고 답변' 유형. 은폐 프레임으로 발전할 수 있는 진술. 최우선 팩트 확인 대상",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 6200,
+   "engagement": {
+    "comments": 61,
+    "views": 6180
+   }
+  },
+  {
+   "id": "T-18",
+   "date": "2026-08-13",
+   "type": "community",
+   "outlet": "시사 커뮤니티",
+   "tier": "T4",
+   "title": "이거 경쟁사 언론플레이 아님? 하필 B사 리콜이랑 같은 날",
+   "url": "https://example.invalid/community-c/post/771203",
+   "snippet": "시험 주체가 어디인지부터 봐야 함. 소비자단체 자체 시험이면 공인기관 아니잖아.",
+   "keyword_hit": [
+    "누리솔",
+    "소비자단체",
+    "리콜"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.66,
+   "sentiment_flag": "반론 여론. 이 목소리가 존재한다고 안심하면 안 된다. 반론 여론은 대개 소수이고 빨리 사라진다",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 2400,
+   "engagement": {
+    "comments": 23,
+    "views": 2380
+   }
+  },
+  {
+   "id": "T-19",
+   "date": "2026-08-13",
+   "type": "community",
+   "outlet": "생활정보 커뮤니티",
+   "tier": "T4",
+   "title": "누리솔 렌탈 위약금 계산법 아시는 분",
+   "url": "https://example.invalid/community-a/post/883501",
+   "snippet": "약정 5년 중 3년 썼는데 위약금이 생각보다 크네요.",
+   "keyword_hit": [
+    "누리솔 렌탈",
+    "렌탈 위약금"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.71,
+   "sentiment_flag": "상시 불만. ISSUE-01 과 무관. 클러스터에 넣지 말 것",
+   "human_review_required": false,
+   "issue_tag": "rental_terms",
+   "diff_status": "continued",
+   "reach_estimate": 2700,
+   "engagement": {
+    "comments": 27,
+    "views": 2650
+   }
+  },
+  {
+   "id": "T-20",
+   "date": "2026-08-13",
+   "type": "sns",
+   "outlet": "X",
+   "tier": "T4",
+   "title": "누리솔 필터 논란 3줄 요약",
+   "url": "https://example.invalid/x/status/991450",
+   "snippet": "1. 소비자단체 시험서 기준치 1.8배 검출 2. 회사는 문제없다 주장 3. 재시험 요구 중",
+   "keyword_hit": [
+    "누리솔",
+    "논란",
+    "기준치 초과",
+    "검출"
+   ],
+   "ai_sentiment": "부정",
+   "ai_confidence": 0.84,
+   "sentiment_flag": "요약 카드형 게시물. 확산 속도가 가장 빠른 포맷. 리포스트 추이를 2시간 간격으로 추적",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 41000,
+   "engagement": {
+    "reposts": 340,
+    "likes": 892
+   }
+  },
+  {
+   "id": "T-21",
+   "date": "2026-08-13",
+   "type": "sns",
+   "outlet": "인스타그램",
+   "tier": "T4",
+   "title": "워터핏 미니 체험단 게시물",
+   "url": "https://example.invalid/instagram/p/def456",
+   "snippet": "물맛이 확실히 다르네요 #누리솔 #워터핏미니 #체험단",
+   "keyword_hit": [
+    "누리솔",
+    "워터핏"
+   ],
+   "ai_sentiment": "긍정",
+   "ai_confidence": 0.92,
+   "sentiment_flag": "협찬. 가중치 0.3. 이슈 발생일에 협찬 콘텐츠가 계속 나가는 것 자체가 리스크. 인플루언서 협업 일시 중단 검토 필요",
+   "human_review_required": false,
+   "issue_tag": "product_launch",
+   "diff_status": "new",
+   "reach_estimate": 4800,
+   "engagement": {
+    "likes": 180,
+    "comments": 9
+   }
+  },
+  {
+   "id": "T-22",
+   "date": "2026-08-13",
+   "type": "sns",
+   "outlet": "X",
+   "tier": "T4",
+   "title": "공기청정기 다 거기서 거기 아닌가",
+   "url": "https://example.invalid/x/status/991602",
+   "snippet": "이번 기회에 다 조사했으면 좋겠다",
+   "keyword_hit": [
+    "공기청정기"
+   ],
+   "ai_sentiment": "중립",
+   "ai_confidence": 0.63,
+   "sentiment_flag": "업계 전체로 프레임이 넓어지는 신호. 우리에겐 단기적으로 유리하나 규제 강화로 이어질 수 있음",
+   "human_review_required": false,
+   "issue_tag": "filter_quality",
+   "diff_status": "new",
+   "reach_estimate": 1900,
+   "engagement": {
+    "reposts": 12,
+    "likes": 38
+   }
+  }
+ ]
+}
