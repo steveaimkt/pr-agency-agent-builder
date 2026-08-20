@@ -1,0 +1,9 @@
+{
+  "name": "pr-agency-slide-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "제안서 장표를 파워포인트로 뽑는 도구",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}
