@@ -1,0 +1,192 @@
+/* =====================================================================
+   WMBB Design System — Colors & Type
+   Source: Figma "브랜드 톤앤매너" (Tone & Manner) portfolio template
+   claude.ai/design · WMBB Design System (019de19d)
+   ===================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap");
+
+/* Pretendard 웹폰트 · 내려받을 것 없이 이 줄 하나면 붙는다.
+   오프라인으로 써야 하면 fonts/ 에 TTF 9종을 넣는다. 아래 @font-face 가 그때 쓰인다. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+/* Pretendard — official Korean/Latin brand face for WMBB. */
+@font-face { font-family: "Pretendard"; font-weight: 100; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Thin.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 200; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-ExtraLight.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 300; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Light.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 800; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-ExtraBold.ttf") format("truetype"); }
+@font-face { font-family: "Pretendard"; font-weight: 900; font-style: normal; font-display: swap;
+  src: url("fonts/Pretendard-Black.ttf") format("truetype"); }
+
+:root {
+  /* ─────────────────────────── Brand colors ─────────────────────────── */
+  --wmbb-ink:          rgb(42, 42, 40);   /* #2A2A28 */
+  --wmbb-ink-soft:     rgb(60, 54, 51);   /* #3C3633 */
+  --wmbb-ink-muted:    rgb(68, 68, 68);   /* #444444 */
+  --wmbb-ink-quiet:    rgb(76, 77, 89);   /* #4C4D59 */
+  --wmbb-ink-faint:    rgb(132, 131, 131);/* #848383 */
+  --wmbb-ink-fade:     rgb(175, 175, 172);/* #AFAFAC */
+
+  --wmbb-paper:        rgb(243, 243, 242);/* #F3F3F2 */
+  --wmbb-paper-warm:   rgb(238, 237, 235);/* #EEEDEB */
+  --wmbb-card:         rgb(255, 255, 255);/* #FFFFFF */
+  --wmbb-line:         rgb(235, 235, 235);/* #EBEBEB */
+
+  --wmbb-sand:         rgb(224, 204, 190);/* #E0CCBE */
+  --wmbb-olive:        rgb(116, 114, 100);/* #747264 */
+
+  --wmbb-lilac-100:    rgb(230, 233, 255);
+  --wmbb-lilac-200:    rgb(196, 201, 229);
+  --wmbb-lilac-spec:   rgb(151, 71, 255);
+
+  --wmbb-highlight:    rgb(235, 255, 44); /* #EBFF2C */
+
+  --wmbb-glass-50:     rgba(255, 255, 255, 0.50);
+  --wmbb-glass-70:     rgba(255, 255, 255, 0.70);
+  --wmbb-glass-35:     rgba(255, 255, 255, 0.35);
+  --wmbb-veil-26:      rgba(0, 0, 0, 0.26);
+  --wmbb-veil-61:      rgba(0, 0, 0, 0.61);
+
+  --fg-1: var(--wmbb-ink);
+  --fg-2: var(--wmbb-ink-muted);
+  --fg-3: var(--wmbb-ink-quiet);
+  --fg-4: var(--wmbb-ink-fade);
+  --fg-on-dark:        rgb(255,255,255);
+  --fg-on-dark-soft:   var(--wmbb-paper);
+
+  --bg-page:    var(--wmbb-paper);
+  --bg-card:    var(--wmbb-card);
+  --bg-inverse: var(--wmbb-ink);
+  --bg-inverse-2: var(--wmbb-ink-muted);
+
+  --border-line: var(--wmbb-line);
+
+  /* ─────────────────────────── Type families ─────────────────────────── */
+  --font-sans:    "Pretendard", "Manrope", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-display: "Pretendard", "Bricolage Grotesque", "Manrope", ui-serif, Georgia, serif;
+  --font-ui:      "Pretendard", "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-meta:    "Roboto", ui-sans-serif, system-ui, sans-serif;
+
+  /* ─────────────────────────── Type scale ─────────────────────────── */
+  --text-display:   55px;
+  --text-h1:        50px;
+  --text-h2:        30px;
+  --text-h3:        24px;
+  --text-lead:      20px;
+  --text-body:      18px;
+  --text-body-sm:   16px;
+  --text-meta:      15px;
+  --text-button:    14px;
+
+  --leading-tight:  1.1;
+  --leading-flat:   1.0;
+  --leading-snug:   1.4;
+  --leading-body:   1.6;
+
+  /* ─────────────────────────── Radius / spacing / shadow ─────────────────────────── */
+  --radius-xs: 5px;
+  --radius-sm: 10px;
+  --radius-md: 13px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-2xl: 60px;
+  --radius-pill: 999px;
+
+  --space-1: 5px;   --space-2: 10px;  --space-3: 15px;  --space-4: 20px;
+  --space-5: 30px;  --space-6: 40px;  --space-7: 50px;  --space-8: 60px;
+  --space-9: 80px;  --space-10: 100px; --space-11: 150px;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-2: 0 4px 14px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.01);
+  --shadow-3: 0 10px 30px rgba(0,0,0,0.15);
+  --shadow-4: 0 20px 60px rgba(0,0,0,0.26);
+
+  --blur-nav:   blur(50px);
+  --blur-glass: blur(80px);
+
+  --ease-out:  cubic-bezier(.2, .7, .2, 1);
+  --ease-in-out: cubic-bezier(.45, 0, .15, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-slow:  360ms;
+}
+
+/* ─────────────────────────── Semantic element styles ─────────────────────────── */
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 { font-family: var(--font-sans); font-weight: 500; font-size: var(--text-h1);
+  line-height: var(--leading-flat); color: var(--fg-1); letter-spacing: -0.005em; margin: 0; }
+h2, .h2 { font-family: var(--font-sans); font-weight: 500; font-size: var(--text-h2);
+  line-height: var(--leading-flat); color: var(--fg-1); margin: 0; }
+h3, .h3 { font-family: var(--font-sans); font-weight: 500; font-size: var(--text-h3);
+  line-height: var(--leading-snug); color: var(--fg-1); margin: 0; }
+
+.display, .hero-title { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-display);
+  line-height: var(--leading-tight); color: var(--fg-1); letter-spacing: -0.01em; text-wrap: pretty; }
+
+.display-bricolage { font-family: var(--font-display); font-weight: 500; font-size: var(--text-display);
+  line-height: var(--leading-tight); letter-spacing: -0.005em; }
+
+p, .body { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-body);
+  line-height: var(--leading-body); color: var(--fg-2); margin: 0; text-wrap: pretty; }
+.lead { font-family: var(--font-sans); font-weight: 500; font-size: var(--text-lead);
+  line-height: var(--leading-snug); color: var(--fg-1); }
+.support { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-body);
+  line-height: var(--leading-body); color: var(--fg-3); }
+.meta { font-family: var(--font-sans); font-weight: 500; font-size: var(--text-meta);
+  line-height: var(--leading-body); color: var(--fg-1); }
+.eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: var(--text-meta);
+  line-height: var(--leading-body); color: var(--wmbb-ink);
+  text-transform: none; /* the brand never SHOUTS */ }
+.caption { font-family: var(--font-meta); font-weight: 400; font-size: 14px;
+  line-height: 1.5; color: var(--fg-4); }
+
+a { color: var(--fg-1); text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out); }
+a:hover { opacity: 0.7; }
+a.underline { text-decoration: underline; text-underline-offset: 4px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: flex-end; gap: 10px;
+  padding: 10px 20px; border-radius: var(--radius-xs); font-family: var(--font-sans);
+  font-weight: 500; font-size: var(--text-button); line-height: 1.6;
+  border: 1px solid var(--wmbb-line); background: var(--wmbb-card); color: var(--fg-1);
+  cursor: pointer; transition: background var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out); }
+.btn:hover { background: var(--wmbb-paper-warm); }
+.btn:active { transform: translateY(1px); }
+.btn--solid { background: var(--wmbb-ink); color: var(--fg-on-dark); border-color: var(--wmbb-ink); }
+.btn--solid:hover { background: var(--wmbb-ink-soft); }
+.btn--ghost { background: transparent; border-color: transparent; color: var(--fg-1); }
+
+.card { background: var(--bg-card); border-radius: var(--radius-md);
+  border: 1px solid var(--wmbb-line); box-shadow: var(--shadow-1); }
+.card--glass { background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.35) 100%);
+  border: 1px solid rgba(255,255,255,0.95); backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass); }
+
+.hr { border: 0; border-top: 1px solid var(--wmbb-line); margin: 0; }
+.hr--dark { border-top-color: var(--wmbb-ink-muted); }
+
+::selection { background: var(--wmbb-ink); color: var(--wmbb-paper); }

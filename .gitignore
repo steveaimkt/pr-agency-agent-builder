@@ -4,3 +4,4 @@ output/*
 !output/.gitkeep
 specs/*
 !specs/README.md
+tools/pptx/node_modules/

@@ -32,6 +32,8 @@ PR·홍보 대행사 실무자를 위한 교육·실습용 공개본이다. 고�
 ## 폴더
 
 ```
+design-system/                 색·글꼴 토큰 (Pretendard · 잉크/종이/형광)
+tools/                         장표·문서 규격과 내보내기 도구
 .claude/skills/pr-agency-agent-builder/
   SKILL.md                     게이트 흐름 0단계 → PHASE 0 → ①~⑧
   templates/00_업무구체화_워크시트.md   설계서 여덟 칸 A~H
@@ -64,6 +66,28 @@ output/                        산출물이 쌓이는 곳
 | 워드 (.docx) | 공식 스킬 `docx` | 문서로 넘기고 상대가 고쳐 써야 할 때 |
 | 엑셀 (.xlsx) | 공식 스킬 `xlsx` | 표와 숫자가 본체일 때 |
 | 웹 화면 (.html) | `tools/md2html.py` | 빨리 보고 링크로 돌려볼 때 |
+
+### 디자인은 새로 고르지 않는다
+
+색과 글꼴은 `design-system/colors_and_type.css` 에 이미 정해져 있다. 장표를 만들 때 이 파일을 물린다.
+
+```
+잉크    #2A2A28    글자와 어두운 면
+종이    #F3F3F2    바탕
+흰 카드  #FFFFFF    카드와 표
+형광    #EBFF2C    강조. 한 장에 한 번만
+```
+
+글꼴은 **Pretendard** 하나로 한글과 영문을 다 쓴다. CSS 맨 위 `@import` 한 줄이 CDN 에서 받아 오니 내려받을 것이 없다.
+오프라인으로 써야 하면 `design-system/fonts/` 에 TTF 를 넣는다 (SIL Open Font License 1.1).
+
+장표 구조는 `tools/slide-design.md`, 문서 구조는 `tools/design.md` 를 따른다.
+파워포인트는 `tools/pptx/html2pptx.js` 로 뽑으면 **글자를 고칠 수 있는 파일**이 나온다. 그림이 아니다.
+
+```
+cd tools/pptx && npm install pptxgenjs
+node tools/pptx/html2pptx.js 장표.html
+```
 
 ### 공식 스킬 붙이기
 

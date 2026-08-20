@@ -50,6 +50,7 @@ description: |
 - 완성 한 벌: `examples/보도자료초안/` (막힐 때만 참고)
 - 작업 공간: `specs/<업무명>-워크시트.md` (작성) · `outputs/` (산출물 3종 저장)
 - 샘플 자료: `input/` (제안 · 리서치 · 콘텐츠 · 문서 · 모니터링 · 내자료 · 교체용)
+- 디자인: `design-system/colors_and_type.css` (색·글꼴) · `tools/slide-design.md` (장표) · `tools/design.md` (문서)
 - 내보내기: **공식 스킬** `docx` · `pptx` · `xlsx` · `pdf` (`.claude/skills/` 에 이미 있다)
   · 빠른 미리보기는 `tools/md2html.py`
 
@@ -170,6 +171,17 @@ description: |
    | ⓒ **엑셀** (.xlsx) | 공식 스킬 `xlsx` | 표와 숫자가 본체일 때 |
    | ⓓ **웹 화면** (.html) | `tools/md2html.py` | 빨리 보고 링크로 돌려볼 때 |
 
+
+   ⭐ **디자인은 새로 고르지 않는다.** 색과 글꼴은 이미 정해져 있다.
+   | 무엇을 만드나 | 따를 규격 | 뽑는 도구 |
+   |---|---|---|
+   | 색·글꼴 (다 공통) | `design-system/colors_and_type.css` | 그대로 물린다 |
+   | 장표 (파워포인트·웹 화면) | `tools/slide-design.md` | `tools/pptx/html2pptx.js` |
+   | 문서 (워드) | `tools/design.md` | 공식 스킬 `docx` |
+
+   **외울 색 넷** · 잉크 `#2A2A28` · 종이 `#F3F3F2` · 흰 카드 `#FFFFFF` · 형광 `#EBFF2C`
+   ⛔ **형광은 한 장에 한 번만.** 두 번 쓰면 둘 다 안 보인다.
+   ⛔ **`html2pptx.js` 로 뽑으면 글자를 고칠 수 있는 파워포인트가 나온다.** 그림이 아니라서 고객사가 열어서 손댈 수 있다.
    ⭐ **공식 스킬은 이미 들어 있다.** `.claude/skills/` 안에 `docx` · `pptx` · `xlsx` · `pdf` 가 있다.
    앤트로픽이 공개한 스킬 묶음이고, 내려받을 것이 없다. **이름만 부르면 붙는다.**
    ⛔ **둘 이상 고르면 하나를 본편으로 정한다.** 나머지는 부산물로 같이 낸다. 셋을 동시에 고치면 서로 어긋난다.
