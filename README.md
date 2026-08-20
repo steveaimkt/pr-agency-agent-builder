@@ -33,7 +33,16 @@ PR·홍보 대행사 실무자를 위한 교육·실습용 공개본이다. 고�
 
 ```
 design-system/                 색·글꼴 토큰 (Pretendard · 잉크/종이/형광)
-tools/                         장표·문서 규격과 내보내기 도구
+tools/                         내보내기 도구와 규격
+  slide-design.md              장표 구조 규격
+  design.md                    문서 구조 규격
+  md2docx.py md2xlsx.py md2html.py
+  pptx/make-deck.js            목차와 초안에서 제안 PPT 를 뽑는다
+  pptx/html2pptx.js            손으로 짠 장표 HTML 을 PPT 로 바꾼다
+  pptx/check-patterns.js       장표 패턴 10종을 시험 인쇄한다
+  pptx/lib/patterns/           장표 짜임새 10종
+input/                         샘플 자료 (가상 브랜드·가상 기관)
+output/                        산출물이 여기 쌓인다
 .claude/skills/pr-agency-agent-builder/
   SKILL.md                     게이트 흐름 0단계 → PHASE 0 → ①~⑧
   templates/00_업무구체화_워크시트.md   설계서 여덟 칸 A~H
@@ -42,11 +51,7 @@ tools/                         장표·문서 규격과 내보내기 도구
   references/01_완성예시.md       보도자료 에이전트 한 벌 (SKILL.md 전문 포함)
   references/02_트랙_고르기.md     무엇부터 자동화할지 정하는 법
   examples/보도자료초안/          채운 워크시트 · 스킬 · 산출물 · 사용법
-  specs/                       작업 공간
-  outputs/                     인도 3종이 떨어지는 곳
-input/                         샘플 자료 (가상 브랜드·가상 기관)
-tools/md2html.py               웹 화면으로 빨리 보기
-output/                        산출물이 쌓이는 곳
+  specs/                       워크시트를 쓰는 곳
 ```
 
 ## 쓰는 법
@@ -108,7 +113,8 @@ node tools/pptx/make-deck.js output/02-제안-목차.md output/03-챕터-초안.
    산문 여섯 줄을 먼저 쓰고 표는 그 뒤에 둔다
 ```
 
-확인이 안 끝난 것이 남아 있으면 멈추게 하려면 `--strict` 를 붙인다. 노란 표시가 하나라도 있으면 파일을 만들지 않고 멈춘다.
+확인이 안 끝난 것이 남아 있으면 멈추게 하려면 `--strict` 를 붙인다.
+노란 표시가 하나라도 있으면 **파일을 만들지 않고** 종료 코드 2 로 멈춘다.
 
 ```
 node tools/pptx/make-deck.js output/02-제안-목차.md output/03-챕터-초안.md output/06-제안-PPT.pptx --strict
@@ -142,8 +148,11 @@ node tools/pptx/html2pptx.js 장표.html
 패턴이나 색을 고쳤으면 한 번 돌려서 눈으로 본다.
 
 ```
-node tools/pptx/check-patterns.js 확인.pptx
+node tools/pptx/check-patterns.js 패턴확인.pptx
 ```
+
+⚠️ **인자는 「검사할 파일」이 아니라 「새로 만들 파일 이름」이다.**
+이미 있는 파일 이름을 주면 덮지 않고 멈춘다. 산출물 이름을 주지 않도록 조심한다.
 
 ### 공식 스킬 붙이기
 

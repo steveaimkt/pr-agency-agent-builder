@@ -7,7 +7,7 @@
  * 예:
  *   node tools/pptx/make-deck.js output/02-제안-목차.md output/03-챕터-초안.md
  *
- * 색과 글자는 tools/design.md 를 따른다. 새로 고르지 않는다.
+ * 색과 글자는 tools/slide-design.md 와 design-system/colors_and_type.css 를 따른다. 새로 고르지 않는다.
  *
  * 규칙
  *   초안에 글이 있는 항목만 슬라이드로 만든다
@@ -34,7 +34,10 @@ const BODY = '4C4D59';   // WMBB 본문
 const FADE = 'AFAFAC';   // WMBB 흐린 글자
 const FONT = 'Pretendard'; // 디자인 시스템 글꼴. 없으면 시스템 글꼴로 넘어간다
 
-const [, , outlinePath, draftPath, outName] = process.argv;
+const argv = process.argv.slice(2);
+const FLAGS = argv.filter((a) => a.startsWith('--'));
+const [outlinePath, draftPath, outName] = argv.filter((a) => !a.startsWith('--'));
+const STRICT = FLAGS.includes('--strict');
 
 if (!outlinePath) {
   console.error('쓰는 법: node tools/pptx/make-deck.js <목차파일> [챕터초안파일] [내보낼이름]');
@@ -203,6 +206,16 @@ last.addText(
 );
 
 const file = outName || 'output/06-제안-PPT.pptx';
+
+/* --strict · 확인이 안 끝난 표시가 남았으면 파일을 만들지 않고 멈춘다.
+ * 만든 뒤에 멈추면 「안 만들었겠지」 하고 옛 파일을 들고 나가는 사고가 난다. */
+if (STRICT && factChecks) {
+  console.error(`노란 표시가 ${factChecks}개 남았습니다. --strict 라서 파일을 만들지 않습니다.`);
+  console.error('  초안에서 [FACT-CHECK] 와 [확인 필요] 를 없앤 뒤 다시 돌리십시오.');
+  console.error(`  그대로 뽑아 보시려면 --strict 를 빼십시오: ${file}`);
+  process.exit(2);
+}
+
 fs.mkdirSync(path.dirname(file), { recursive: true });
 
 pptx.writeFile({ fileName: file }).then((f) => {
@@ -214,9 +227,5 @@ pptx.writeFile({ fileName: file }).then((f) => {
   console.log(`  노란 표시 ${factChecks}개`);
   if (factChecks) {
     console.log(`  ⚠️ 노란 표시가 ${factChecks}개 남았습니다. 사람이 확인하기 전에는 발표용이 아닙니다.`);
-    if (process.argv.includes('--strict')) {
-      console.error('  --strict 라서 여기서 멈춥니다. 노란 표시를 없앤 뒤 다시 돌리십시오.');
-      process.exit(2);
-    }
   }
 });

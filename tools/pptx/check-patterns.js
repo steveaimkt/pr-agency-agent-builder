@@ -3,6 +3,9 @@
  *
  *   node tools/pptx/check-patterns.js [내보낼이름.pptx]
  *
+ * ⚠️ 인자는 「검사할 파일」이 아니라 「새로 만들 파일 이름」이다.
+ *    이미 있는 파일 이름을 주면 덮지 않고 멈춘다. 정말 덮으려면 --force 를 붙인다.
+ *
  * 열 가지 패턴을 한 장씩 뽑아 준다. 색과 글꼴이 디자인 시스템 안인지 눈으로 본다.
  * 패턴이나 design-system.js 를 고친 뒤에는 이걸 한 번 돌린다.
  */
@@ -50,7 +53,14 @@ for (const [name, fn] of Object.entries(P)) {
   try { fn(pres.addSlide(), pres, D[name] || {}); ok++; }
   catch (e) { fail.push(name + ' · ' + e.message); }
 }
-pres.writeFile({ fileName: process.argv[2] || 'patterns-check.pptx' }).then(() => {
-  console.log(`성공 ${ok}종 / 10종`);
+const outName = process.argv.slice(2).find((a) => !a.startsWith('--')) || 'patterns-check.pptx';
+if (require('fs').existsSync(outName) && !process.argv.includes('--force')) {
+  console.error(`이미 있는 파일입니다: ${outName}`);
+  console.error('  이 인자는 「검사할 파일」이 아니라 「새로 만들 파일 이름」입니다.');
+  console.error('  다른 이름을 주시거나, 정말 덮으시려면 --force 를 붙이십시오.');
+  process.exit(1);
+}
+pres.writeFile({ fileName: outName }).then(() => {
+  console.log(`성공 ${ok}종 / 10종 · ${outName}`);
   if (fail.length) { console.log('실패:'); fail.forEach(f => console.log('  ' + f)); }
 });
